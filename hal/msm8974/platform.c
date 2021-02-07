@@ -1767,9 +1767,9 @@ int platform_set_voice_volume(void *platform, int volume)
     struct mixer_ctl *ctl;
     const char *mixer_ctl_name = "Voice Rx Gain";
     int vol_index = 0, ret = 0;
-    uint32_t set_values[ ] = {0,
-                              ALL_SESSION_VSID,
-                              DEFAULT_VOLUME_RAMP_DURATION_MS};
+    long set_values[ ] = {0,
+                          ALL_SESSION_VSID,
+                          DEFAULT_VOLUME_RAMP_DURATION_MS};
 
     // Voice volume levels are mapped to adsp volume levels as follows.
     // 100 -> 5, 80 -> 4, 60 -> 3, 40 -> 2, 20 -> 1  0 -> 0
@@ -1803,9 +1803,9 @@ int platform_set_mic_mute(void *platform, bool state)
     struct mixer_ctl *ctl;
     const char *mixer_ctl_name = "Voice Tx Mute";
     int ret = 0;
-    uint32_t set_values[ ] = {0,
-                              ALL_SESSION_VSID,
-                              DEFAULT_MUTE_RAMP_DURATION_MS};
+    long set_values[ ] = {0,
+                          ALL_SESSION_VSID,
+                          DEFAULT_MUTE_RAMP_DURATION_MS};
 
     if (adev->mode != AUDIO_MODE_IN_CALL &&
         adev->mode != AUDIO_MODE_IN_COMMUNICATION)
@@ -1841,9 +1841,9 @@ int platform_set_device_mute(void *platform, bool state, char *dir)
     struct mixer_ctl *ctl;
     char *mixer_ctl_name = NULL;
     int ret = 0;
-    uint32_t set_values[ ] = {0,
-                              ALL_SESSION_VSID,
-                              0};
+    long set_values[ ] = {0,
+                          ALL_SESSION_VSID,
+                          0};
     if(dir == NULL) {
         ALOGE("%s: Invalid direction:%s", __func__, dir);
         return -EINVAL;

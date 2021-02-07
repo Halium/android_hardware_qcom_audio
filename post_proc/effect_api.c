@@ -205,8 +205,8 @@ int offload_virtualizer_send_params(struct mixer_ctl *ctl,
                                     struct virtualizer_params *virtualizer,
                                     unsigned param_send_flags)
 {
-    int param_values[128] = {0};
-    int *p_param_values = param_values;
+    long param_values[128] = {0};
+    long *p_param_values = param_values;
 
     ALOGV("%s", __func__);
     *p_param_values++ = VIRTUALIZER_MODULE;
@@ -464,8 +464,8 @@ int offload_reverb_send_params(struct mixer_ctl *ctl,
                                struct reverb_params *reverb,
                                unsigned param_send_flags)
 {
-    int param_values[128] = {0};
-    int *p_param_values = param_values;
+    long param_values[128] = {0};
+    long *p_param_values = param_values;
 
     ALOGV("%s", __func__);
     *p_param_values++ = REVERB_MODULE;
