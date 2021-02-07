@@ -3199,8 +3199,8 @@ static int out_set_volume(struct audio_stream_out *stream, float left,
                       __func__, mixer_ctl_name);
                 return -EINVAL;
             }
-            volume[0] = (int)(AmpToDb(left));
-            volume[1] = (int)(AmpToDb(right));
+            volume[0] = (long)(AmpToDb(left));
+            volume[1] = (long)(AmpToDb(right));
             mixer_ctl_set_array(ctl, volume, sizeof(volume)/sizeof(volume[0]));
             return 0;
         } else {

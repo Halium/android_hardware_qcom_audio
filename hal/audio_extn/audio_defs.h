@@ -122,13 +122,13 @@ struct source_tracking_param {
     uint16_t  doa_speech;
     uint16_t  doa_noise[3];
     uint8_t   polar_activity[360];
-};
+} __attribute__((packed));
 
 struct sound_focus_param {
     uint16_t  start_angle[MAX_SECTORS];
     uint8_t   enable[MAX_SECTORS];
     uint16_t  gain_step;
-};
+} __attribute__((packed));
 
 struct aptx_dec_bt_addr {
     uint32_t nap;
