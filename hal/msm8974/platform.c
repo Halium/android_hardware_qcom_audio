@@ -3046,7 +3046,7 @@ int platform_set_voice_volume(void *platform, int volume)
               __func__, mixer_ctl_name);
         return -EINVAL;
     }
-    ALOGV("Setting voice volume index: %d", set_values[0]);
+    ALOGV("Setting voice volume index: %ld", set_values[0]);
     mixer_ctl_set_array(ctl, set_values, ARRAY_SIZE(set_values));
 
     if (my_data->csd != NULL) {
@@ -5865,7 +5865,7 @@ int platform_set_channel_map(void *platform, int ch_count, char *ch_map, int snd
     char mixer_ctl_name[44] = {0}; // max length of name is 44 as defined
     int ret;
     unsigned int i;
-    int set_values[8] = {0};
+    long set_values[8] = {0};
     struct platform_data *my_data = (struct platform_data *)platform;
     struct audio_device *adev = my_data->adev;
     ALOGV("%s channel_count:%d",__func__, ch_count);
